@@ -1,0 +1,10 @@
+name: Public-Server
+version: ${project.version}
+main: de.monaco07.publicserver.Main
+api-version: 1.19
+authors: [ Paul, Leonard ]
+description: Öffentlicher server
+
+commands:
+  timer:
+    permission: testname.command.timer
