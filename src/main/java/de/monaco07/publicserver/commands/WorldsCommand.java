@@ -22,16 +22,13 @@ public class WorldsCommand implements CommandExecutor {
                 sender.sendMessage(help());
                 break;
             }
-            case "list": {
+            case "list":
+            case "show": {
                 sender.sendMessage("Hier sind alle Welten");
                 for (World world : Bukkit.getWorlds()){
                     sender.sendMessage(ChatColor.BLUE + world.getName());
                 }
                 break;
-            }
-            case "show": {
-
-
             }
             case "create": {
                 if (args.length > 3) {
