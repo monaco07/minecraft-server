@@ -7,4 +7,6 @@ description: Öffentlicher server
 
 commands:
   timer:
-    permission: testname.command.timer
+    permission: server.command.timer
+  worlds:
+    permission: server.command.worlds

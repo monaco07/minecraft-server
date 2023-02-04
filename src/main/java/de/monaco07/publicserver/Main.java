@@ -1,6 +1,7 @@
 package de.monaco07.publicserver;
 
 import de.monaco07.publicserver.commands.TimerCommand;
+import de.monaco07.publicserver.commands.WorldsCommand;
 import de.monaco07.publicserver.timer.Timer;
 import de.monaco07.publicserver.listeners.JoinListener;
 import org.bukkit.Bukkit;
@@ -29,6 +30,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new JoinListener(), this);
 
         getCommand("timer").setExecutor(new TimerCommand());
+        getCommand("worlds").setExecutor(new WorldsCommand());
 
 
         timer = new Timer(false, 0);
