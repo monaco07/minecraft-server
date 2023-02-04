@@ -30,44 +30,50 @@ public class WorldsCommand implements CommandExecutor {
                 }
                 break;
             }
-            case "create":{
-
-                if(args.length > 2){
+            case "create": {
+                if (args.length > 2) {
                     sender.sendMessage(help());
-                }
-
-                else if(args.length == 1 || args.length == 2){
+                } else {
                     WorldCreator creator = new WorldCreator(args[1]);
-                    if(args.length == 2){
-                        creator.seed(Long.parseLong(args[2]));
+                    if (args.length == 2) {
+                        try {
+                            long seed = Long.parseLong(args[2]);
+                            creator.seed(seed);
+                        } catch (NumberFormatException e) {
+                            sender.sendMessage(ChatColor.RED + "Fehler: Bitte geben Sie eine gültige Seed-Zahl ein.");
+                            break;
+                        }
                     }
-                    sender.sendMessage(ChatColor.BLUE + "Die Welt wird jetzt erstellt");
-                    Bukkit.createWorld(creator);
-                    sender.sendMessage(ChatColor.BLUE + "Die Welt wurde erstellt");
-
+                    sender.sendMessage(ChatColor.BLUE + "Die Welt wird jetzt erstellt...");
+                    try {
+                        Bukkit.createWorld(creator);
+                        sender.sendMessage(ChatColor.BLUE + "Die Welt wurde erfolgreich erstellt.");
+                    } catch (Exception e) {
+                        sender.sendMessage(ChatColor.RED + "Es gab ein Problem beim Erstellen der Welt: " + e.getMessage());
+                    }
                 }
                 break;
             }
 
             case "tp":{
-                if (sender instanceof Player) {
-                    Player player = (Player) sender;
+                if (!(sender instanceof Player)) {
+                    sender.sendMessage("Du bist kein Spieler und kannst dich nicht tp.");
 
-                    if (args.length == 1) {
-                        if (sender instanceof Player) {
-                            sender.sendMessage("tpt dich zu welt " + args[1]);
-                            if (Bukkit.getWorld(args[1]) != null) {
-                                player.teleport(Bukkit.getWorld(args[1]).getSpawnLocation());
-                            }
-                        } else {
-                            sender.sendMessage("Du bist kein Spieler und kannst dicht tpt werden");
-                        }
-
-                    } else {
-                        sender.sendMessage("Benutze \n" + ChatColor.BLUE + "/worlds tp <world>");
-                    }
-                    break;
                 }
+                Player player = (Player) sender;
+                if (args.length != 1) {
+                    sender.sendMessage(ChatColor.RED + "Benutze: /worlds tp <welt>");
+
+                }
+                World world = Bukkit.getWorld(args[1]);
+                if (world == null) {
+                    sender.sendMessage(ChatColor.RED + "Die Welt '" + args[1] + "' wurde nicht gefunden.");
+
+                }
+                player.teleport(world.getSpawnLocation());
+                sender.sendMessage(ChatColor.BLUE + "Du wurdest zu Welt '" + args[1] + "' teleportiert.");
+                break;
+
             }
 
             default: {
@@ -82,6 +88,6 @@ public class WorldsCommand implements CommandExecutor {
 
 
     private String help(){
-        return ("Benutze \n" + ChatColor.BLUE.toString() +"/worlds create <name> [seed] \n /worlds show \n /worlds tp <name>");
+        return ("Benutze \n" + ChatColor.BLUE.toString() +" /worlds create <name> [seed] \n /worlds show \n /worlds tp <name>");
     }
 }
