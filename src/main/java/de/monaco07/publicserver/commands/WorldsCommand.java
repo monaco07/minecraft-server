@@ -14,7 +14,10 @@ public class WorldsCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-
+        if(args[0] == null){
+            sender.sendMessage(help());
+        }
+        else {
 
 
         switch (args[0]){
@@ -86,6 +89,7 @@ public class WorldsCommand implements CommandExecutor {
                 sender.sendMessage(help());
                 break;
             }
+        }
         }
 
 
