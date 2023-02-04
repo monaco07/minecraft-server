@@ -60,18 +60,24 @@ public class WorldsCommand implements CommandExecutor {
                     sender.sendMessage("Du bist kein Spieler und kannst dich nicht tp.");
 
                 }
-                Player player = (Player) sender;
-                if (args.length != 1) {
-                    sender.sendMessage(ChatColor.RED + "Benutze: /worlds tp <welt>");
+                else {
+                    Player player = (Player) sender;
+                    if (args.length != 1) {
+                        sender.sendMessage(ChatColor.RED + "Benutze: /worlds tp <welt>");
 
-                }
-                World world = Bukkit.getWorld(args[1]);
-                if (world == null) {
-                    sender.sendMessage(ChatColor.RED + "Die Welt '" + args[1] + "' wurde nicht gefunden.");
+                    }
+                    else {
+                        World world = Bukkit.getWorld(args[1]);
+                        if (world == null) {
+                            sender.sendMessage(ChatColor.RED + "Die Welt '" + args[1] + "' wurde nicht gefunden.");
 
+                        }
+                        else {
+                            player.teleport(world.getSpawnLocation());
+                            sender.sendMessage(ChatColor.BLUE + "Du wurdest zu Welt '" + args[1] + "' teleportiert.");
+                        }
+                    }
                 }
-                player.teleport(world.getSpawnLocation());
-                sender.sendMessage(ChatColor.BLUE + "Du wurdest zu Welt '" + args[1] + "' teleportiert.");
                 break;
 
             }
