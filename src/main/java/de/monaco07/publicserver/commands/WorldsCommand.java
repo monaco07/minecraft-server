@@ -22,20 +22,23 @@ public class WorldsCommand implements CommandExecutor {
                 sender.sendMessage(help());
                 break;
             }
-            case "show": {
-
+            case "list": {
                 sender.sendMessage("Hier sind alle Welten");
                 for (World world : Bukkit.getWorlds()){
                     sender.sendMessage(ChatColor.BLUE + world.getName());
                 }
                 break;
             }
+            case "show": {
+
+
+            }
             case "create": {
-                if (args.length > 2) {
+                if (args.length > 3) {
                     sender.sendMessage(help());
                 } else {
                     WorldCreator creator = new WorldCreator(args[1]);
-                    if (args.length == 2) {
+                    if (args.length == 3) {
                         try {
                             long seed = Long.parseLong(args[2]);
                             creator.seed(seed);
@@ -62,7 +65,7 @@ public class WorldsCommand implements CommandExecutor {
                 }
                 else {
                     Player player = (Player) sender;
-                    if (args.length != 1) {
+                    if (args.length != 2) {
                         sender.sendMessage(ChatColor.RED + "Benutze: /worlds tp <welt>");
 
                     }
@@ -84,6 +87,7 @@ public class WorldsCommand implements CommandExecutor {
 
             default: {
                 sender.sendMessage(help());
+                break;
             }
         }
 
