@@ -7,6 +7,7 @@ import de.monaco07.publicserver.timer.Timer;
 import de.monaco07.publicserver.listeners.JoinListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.World;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -21,6 +22,10 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+        loadWorld("world");
+        loadWorld("lobby");
+
 
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_RED + "Server wurde erfolgreich gestartet");
 
@@ -58,4 +63,15 @@ public final class Main extends JavaPlugin {
     public Timer getTimer() {
         return timer;
     }
+
+    private void loadWorld(String worldName) {
+        World world = Bukkit.getWorld(worldName);
+        if (world == null) {
+            System.out.println("WELT wurde nicht gefunden");
+        }
+    }
+
+
+
+
 }
