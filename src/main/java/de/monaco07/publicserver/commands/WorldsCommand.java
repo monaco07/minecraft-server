@@ -14,7 +14,7 @@ public class WorldsCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        if(args[0] == null){
+        if(args.length <= 0){
             sender.sendMessage(help());
         }
         else {

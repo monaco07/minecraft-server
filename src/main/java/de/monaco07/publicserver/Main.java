@@ -1,5 +1,6 @@
 package de.monaco07.publicserver;
 
+import de.monaco07.publicserver.commands.LobbyCommand;
 import de.monaco07.publicserver.commands.TimerCommand;
 import de.monaco07.publicserver.commands.WorldsCommand;
 import de.monaco07.publicserver.timer.Timer;
@@ -31,6 +32,12 @@ public final class Main extends JavaPlugin {
 
         getCommand("timer").setExecutor(new TimerCommand());
         getCommand("worlds").setExecutor(new WorldsCommand());
+        getCommand("l").setExecutor(new LobbyCommand());
+        getCommand("lobby").setExecutor(new LobbyCommand());
+        getCommand("h").setExecutor(new LobbyCommand());
+        getCommand("hub").setExecutor(new LobbyCommand());
+
+
 
 
         timer = new Timer(false, 0);

@@ -30,6 +30,7 @@ public class TimerCommand implements CommandExecutor {
                 sender.sendMessage(ChatColor.GRAY + "Der Timer wurde gestartet.");
                 break;
             }
+            case "stop":
             case "pause": {
                 Timer timer = Main.getInstance().getTimer();
 
@@ -42,6 +43,7 @@ public class TimerCommand implements CommandExecutor {
                 sender.sendMessage(ChatColor.GRAY + "Der Timer wurde gestoppt.");
                 break;
             }
+            case "time":
             case "set": {
                 if(args.length != 2) {
                     sender.sendMessage(ChatColor.GRAY + "Verwendung" + ChatColor.DARK_GRAY + ": " + ChatColor.BLUE +
@@ -60,6 +62,7 @@ public class TimerCommand implements CommandExecutor {
                 }
                 break;
             }
+            case "clear":
             case "reset": {
                 Timer timer = Main.getInstance().getTimer();
 
