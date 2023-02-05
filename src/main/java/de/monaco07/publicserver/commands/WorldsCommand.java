@@ -20,7 +20,7 @@ public class WorldsCommand implements CommandExecutor {
         else {
 
 
-        switch (args[0]){
+        switch (args[0].toLowerCase()){
             case "help": {
                 sender.sendMessage(help());
                 break;
@@ -78,16 +78,57 @@ public class WorldsCommand implements CommandExecutor {
                         else {
                             player.teleport(world.getSpawnLocation());
                             sender.sendMessage(ChatColor.BLUE + "Du wurdest zu Welt '" + args[1] + "' teleportiert.");
+
                         }
                     }
                 }
                 break;
 
             }
+            case "lade":
+            case "load":
+                if (args.length != 2) {
+                    sender.sendMessage("Verwendung: /worlds load <welt>");
+                    return false;
+                }
+
+                World world = Bukkit.getWorld(args[1]);
+                if (world == null) {
+                    sender.sendMessage("Die Welt '" + args[1] + "' konnte nicht gefunden werden.");
+                    return false;
+                }
+
+                if (!Bukkit.getWorlds().contains(world)) {
+                    Bukkit.createWorld(new WorldCreator(args[1]));
+                    sender.sendMessage("Die Welt '" + args[1] + "' wurde geladen.");
+                } else {
+                    sender.sendMessage("Die Welt '" + args[1] + "' ist bereits geladen.");
+                }
+                break;
+            case "unload":
+                if (args.length != 2) {
+                    sender.sendMessage("Verwendung: /worlds unload <welt>");
+                    return false;
+                }
+
+                world = Bukkit.getWorld(args[1]);
+                if (world == null) {
+                    sender.sendMessage("Die Welt '" + args[1] + "' konnte nicht gefunden werden.");
+                    return false;
+                }
+
+                if (Bukkit.getWorlds().contains(world)) {
+                    Bukkit.unloadWorld(args[1], true);
+                    sender.sendMessage("Die Welt '" + args[1] + "' wurde entladen.");
+                } else {
+                    sender.sendMessage("Die Welt '" + args[1] + "' ist bereits entladen.");
+                }
+                break;
 
             default: {
                 sender.sendMessage(help());
                 break;
+
             }
         }
         }
@@ -99,6 +140,6 @@ public class WorldsCommand implements CommandExecutor {
 
 
     private String help(){
-        return ("Benutze \n" + ChatColor.BLUE.toString() +" /worlds create <name> [seed] \n /worlds show \n /worlds tp <name>");
+        return ("Benutze \n" + ChatColor.BLUE.toString() +" /worlds create <name> [seed] \n /worlds show \n /worlds tp <name> \n/ /worlds <load|unload> <name>");
     }
 }
