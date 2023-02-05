@@ -23,7 +23,6 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        loadWorld("world");
         loadWorld("lobby");
 
 
@@ -66,8 +65,9 @@ public final class Main extends JavaPlugin {
 
     private void loadWorld(String worldName) {
         World world = Bukkit.getWorld(worldName);
+        Bukkit.getLogger().warning("Welt " + worldName + " wurde geladen.");
         if (world == null) {
-            System.out.println("WELT wurde nicht gefunden");
+            Bukkit.getLogger().warning("The world " + worldName + " does not exist and will not be loaded.");
         }
     }
 
