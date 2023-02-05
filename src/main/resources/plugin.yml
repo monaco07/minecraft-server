@@ -10,3 +10,11 @@ commands:
     permission: server.command.timer
   worlds:
     permission: server.command.worlds
+  l:
+    permission: server.command.l
+  lobby:
+    permission: server.command.l
+  h:
+    permission: server.command.l
+  hub:
+    permission: server.command.l
