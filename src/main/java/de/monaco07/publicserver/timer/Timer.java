@@ -29,7 +29,7 @@ public class Timer {
         int secondsNow = time % 60;
         int minutesAll = (time - secondsNow)/60;
         int minutesNow = minutesAll % 60;
-        int hoursAll = (minutesAll - minutesNow) % 60;
+        int hoursAll = (minutesAll - minutesNow) / 60;
 
         // Sekunden
         if(secondsNow < 10){
@@ -47,9 +47,9 @@ public class Timer {
 
 
         if(hoursAll == 0){
-            return (ChatColor.GOLD.toString() + ChatColor.BOLD + minutes + " : " + seconds);
+            return (ChatColor.GOLD.toString() + ChatColor.BOLD + minutes + "m " + seconds + "s");
         } else
-            return (ChatColor.GOLD.toString() + ChatColor.BOLD + hoursAll + " : " + minutes + " : " + seconds);
+            return (ChatColor.GOLD.toString() + ChatColor.BOLD + hoursAll + "h " + minutes + "m " + seconds+ "s");
 
     }
 
