@@ -8,6 +8,7 @@ import de.monaco07.publicserver.listeners.JoinListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
+import org.bukkit.WorldCreator;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -24,6 +25,7 @@ public final class Main extends JavaPlugin {
     public void onEnable() {
 
         loadWorld("lobby");
+        loadWorld("lobby_nether");
 
 
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_RED + "Server wurde erfolgreich gestartet");
@@ -64,11 +66,14 @@ public final class Main extends JavaPlugin {
     }
 
     private void loadWorld(String worldName) {
+
+        new WorldCreator(worldName).createWorld();
+
         World world = Bukkit.getWorld(worldName);
-        Bukkit.getLogger().warning("Welt " + worldName + " wurde geladen.");
         if (world == null) {
             Bukkit.getLogger().warning("The world " + worldName + " does not exist and will not be loaded.");
         }
+
     }
 
 

@@ -9,11 +9,12 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.List;
+
 public class WorldsCommand implements CommandExecutor {
-
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(args.length <= 0){
             sender.sendMessage(help());
         }
@@ -50,6 +51,7 @@ public class WorldsCommand implements CommandExecutor {
                     sender.sendMessage(ChatColor.BLUE + "Die Welt wird jetzt erstellt...");
                     try {
                         Bukkit.createWorld(creator);
+                        Bukkit.getWorlds().add(Bukkit.getWorld(args[1]));
                         sender.sendMessage(ChatColor.BLUE + "Die Welt wurde erfolgreich erstellt.");
                     } catch (Exception e) {
                         sender.sendMessage(ChatColor.RED + "Es gab ein Problem beim Erstellen der Welt: " + e.getMessage());
