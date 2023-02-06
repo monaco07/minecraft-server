@@ -25,8 +25,8 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        WorldLoader.loadWorld("lobby", World.Environment.NORMAL);
-        WorldLoader.loadWorld("Lobby_World", World.Environment.NORMAL);
+        WorldLoader.loadWorld("lobby");
+        WorldLoader.loadWorld("Lobby_World");
 
 
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_RED + "Server wurde erfolgreich gestartet");

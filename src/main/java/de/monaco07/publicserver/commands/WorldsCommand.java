@@ -101,7 +101,7 @@ public class WorldsCommand implements CommandExecutor {
                     return false;
 
                 }
-                WorldLoader.loadWorld(args[1], World.Environment.NORMAL);
+                WorldLoader.loadWorld(args[1]);
                 break;
             }
             case "unload":

@@ -7,14 +7,15 @@ import org.bukkit.WorldType;
 
 public class WorldLoader {
 
-    public static void loadWorld(String worldName, World.Environment worldType) {
+    public static void loadWorld(String worldName) {
 
-        new WorldCreator(worldName).environment(worldType).createWorld();
+        new WorldCreator(worldName).environment(World.Environment.NORMAL).createWorld();
 
         World world = Bukkit.getWorld(worldName);
         if (world == null) {
             Bukkit.getLogger().warning("The world " + worldName + " does not exist and will not be loaded.");
         }
+
 
     }
 }
