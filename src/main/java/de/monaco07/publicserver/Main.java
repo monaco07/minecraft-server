@@ -3,6 +3,8 @@ package de.monaco07.publicserver;
 import de.monaco07.publicserver.commands.LobbyCommand;
 import de.monaco07.publicserver.commands.TimerCommand;
 import de.monaco07.publicserver.commands.WorldsCommand;
+import de.monaco07.publicserver.listeners.QuitListener;
+import de.monaco07.publicserver.listeners.RespawnListener;
 import de.monaco07.publicserver.timer.Timer;
 import de.monaco07.publicserver.loader.WorldLoader;
 import de.monaco07.publicserver.listeners.JoinListener;
@@ -36,6 +38,8 @@ public final class Main extends JavaPlugin {
 
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new JoinListener(), this);
+        pluginManager.registerEvents(new RespawnListener(), this);
+        pluginManager.registerEvents(new QuitListener(), this);
 
         getCommand("timer").setExecutor(new TimerCommand());
         getCommand("worlds").setExecutor(new WorldsCommand());
