@@ -67,7 +67,7 @@ public final class Main extends JavaPlugin {
 
     private void loadWorld(String worldName) {
 
-        new WorldCreator(worldName).createWorld();
+        new WorldCreator(worldName).environment(World.Environment.NORMAL).createWorld();
 
         World world = Bukkit.getWorld(worldName);
         if (world == null) {
