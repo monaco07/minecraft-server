@@ -1,5 +1,6 @@
 package de.monaco07.publicserver.commands;
 
+import de.monaco07.publicserver.loader.WorldLoader;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
@@ -88,32 +89,28 @@ public class WorldsCommand implements CommandExecutor {
 
             }
             case "lade":
-            case "load":
+            case "load": {
                 if (args.length != 2) {
                     sender.sendMessage("Verwendung: /worlds load <welt>");
                     return false;
                 }
 
                 World world = Bukkit.getWorld(args[1]);
-                if (world == null) {
-                    sender.sendMessage("Die Welt '" + args[1] + "' konnte nicht gefunden werden.");
+                if (world != null) {
+                    sender.sendMessage("Die Welt '" + args[1] + "' wurde schon geladen");
                     return false;
-                }
 
-                if (!Bukkit.getWorlds().contains(world)) {
-                    Bukkit.createWorld(new WorldCreator(args[1]));
-                    sender.sendMessage("Die Welt '" + args[1] + "' wurde geladen.");
-                } else {
-                    sender.sendMessage("Die Welt '" + args[1] + "' ist bereits geladen.");
                 }
+                WorldLoader.loadWorld(args[1], World.Environment.NORMAL);
                 break;
+            }
             case "unload":
                 if (args.length != 2) {
                     sender.sendMessage("Verwendung: /worlds unload <welt>");
                     return false;
                 }
 
-                world = Bukkit.getWorld(args[1]);
+                World world = Bukkit.getWorld(args[1]);
                 if (world == null) {
                     sender.sendMessage("Die Welt '" + args[1] + "' konnte nicht gefunden werden.");
                     return false;

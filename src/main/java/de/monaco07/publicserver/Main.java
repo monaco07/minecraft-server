@@ -4,6 +4,7 @@ import de.monaco07.publicserver.commands.LobbyCommand;
 import de.monaco07.publicserver.commands.TimerCommand;
 import de.monaco07.publicserver.commands.WorldsCommand;
 import de.monaco07.publicserver.timer.Timer;
+import de.monaco07.publicserver.loader.WorldLoader;
 import de.monaco07.publicserver.listeners.JoinListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -24,8 +25,8 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        loadWorld("lobby");
-        loadWorld("lobby_nether");
+        WorldLoader.loadWorld("lobby", World.Environment.NORMAL);
+        WorldLoader.loadWorld("Lobby_World", World.Environment.NORMAL);
 
 
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_RED + "Server wurde erfolgreich gestartet");
@@ -65,18 +66,5 @@ public final class Main extends JavaPlugin {
         return timer;
     }
 
-    private void loadWorld(String worldName) {
-
-        new WorldCreator(worldName).environment(World.Environment.NORMAL).createWorld();
-
-        World world = Bukkit.getWorld(worldName);
-        if (world == null) {
-            Bukkit.getLogger().warning("The world " + worldName + " does not exist and will not be loaded.");
-        }
-
     }
 
-
-
-
-}
