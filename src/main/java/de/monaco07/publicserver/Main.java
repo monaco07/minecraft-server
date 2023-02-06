@@ -10,8 +10,6 @@ import de.monaco07.publicserver.loader.WorldLoader;
 import de.monaco07.publicserver.listeners.JoinListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.World;
-import org.bukkit.WorldCreator;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -28,9 +26,6 @@ public final class Main extends JavaPlugin {
     public void onEnable() {
 
         WorldLoader.loadWorld("lobby");
-        WorldLoader.loadWorld("Lobby_World");
-
-
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_RED + "Server wurde erfolgreich gestartet");
 
         // Plugin startup logic

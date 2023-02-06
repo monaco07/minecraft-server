@@ -8,7 +8,7 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 
 public class RespawnListener implements Listener {
     public void onRespawn(PlayerRespawnEvent event) {
-        World world = Bukkit.getServer().getWorlds().get(0);
+        World world = Bukkit.getServer().getWorld("lobby");
         Location spawnLocation = new Location(world, 0, -60, 0);
         event.setRespawnLocation(spawnLocation);
     }
