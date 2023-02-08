@@ -14,7 +14,7 @@ public class InventoryListener implements Listener {
     @EventHandler
     public void onInvClick(InventoryClickEvent event){
         if(event.getCurrentItem() == null) return;
-        if(event.getView().getTitle() == "NAVIGATOR"){
+        if(event.getView().getTitle() == "§4NAVIGATOR"){
             Player player = (Player) event.getWhoClicked();
             event.setCancelled(true);
             if(event.getCurrentItem().getItemMeta().hasLocalizedName()){
