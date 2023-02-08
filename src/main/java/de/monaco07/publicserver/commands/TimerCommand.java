@@ -18,7 +18,7 @@ public class TimerCommand implements CommandExecutor {
         }
 
         switch (args[0].toLowerCase()) {
-            case "resume": {
+            case "resume" -> {
                 Timer timer = Main.getInstance().getTimer();
 
                 if (timer.isRunning()) {
@@ -28,10 +28,8 @@ public class TimerCommand implements CommandExecutor {
 
                 timer.setRunning(true);
                 sender.sendMessage(ChatColor.GRAY + "Der Timer wurde gestartet.");
-                break;
             }
-            case "stop":
-            case "pause": {
+            case "stop", "pause" -> {
                 Timer timer = Main.getInstance().getTimer();
 
                 if (!timer.isRunning()) {
@@ -41,11 +39,9 @@ public class TimerCommand implements CommandExecutor {
 
                 timer.setRunning(false);
                 sender.sendMessage(ChatColor.GRAY + "Der Timer wurde gestoppt.");
-                break;
             }
-            case "time":
-            case "set": {
-                if(args.length != 2) {
+            case "time", "set" -> {
+                if (args.length != 2) {
                     sender.sendMessage(ChatColor.GRAY + "Verwendung" + ChatColor.DARK_GRAY + ": " + ChatColor.BLUE +
                             "/timer set <Zeit>");
                     return true;
@@ -60,20 +56,15 @@ public class TimerCommand implements CommandExecutor {
                 } catch (NumberFormatException e) {
                     sender.sendMessage(ChatColor.RED + "Dein Parameter 2 muss eine Zahl sein.");
                 }
-                break;
             }
-            case "clear":
-            case "reset": {
+            case "clear", "reset" -> {
                 Timer timer = Main.getInstance().getTimer();
 
                 timer.setRunning(false);
                 timer.setTime(0);
                 sender.sendMessage(ChatColor.GRAY + "Der Timer wurde zurückgesetzt.");
-                break;
             }
-            default:
-                sendUsage(sender);
-                break;
+            default -> sendUsage(sender);
         }
         return false;
     }

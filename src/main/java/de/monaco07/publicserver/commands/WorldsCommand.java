@@ -139,6 +139,6 @@ public class WorldsCommand implements CommandExecutor {
 
 
     private String help(){
-        return ("Benutze \n" + ChatColor.BLUE.toString() +" /worlds create <name> [seed] \n /worlds show \n /worlds tp <name> \n/ /worlds <load|unload> <name>");
+        return ("Benutze \n" + ChatColor.BLUE.toString() +" /worlds create <name> [seed] \n /worlds show \n /worlds tp <name> \n /worlds <load|unload> <name>");
     }
 }

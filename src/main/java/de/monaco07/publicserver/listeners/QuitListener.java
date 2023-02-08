@@ -11,6 +11,6 @@ public class QuitListener implements Listener {
     public void onQuit(PlayerQuitEvent event){
         Player player = event.getPlayer();
 
-        event.setQuitMessage(ChatColor.BLUE.toString() + player + ChatColor.RED + " ist offline gegangen");
+        event.setQuitMessage(ChatColor.BLUE.toString() + player.getName() + ChatColor.RED + " ist offline gegangen");
     }
 }

@@ -11,7 +11,7 @@ public class RespawnListener implements Listener {
     @EventHandler
     public void onRespawn(PlayerRespawnEvent event) {
         World world = Bukkit.getServer().getWorld("lobby");
-        Location spawnLocation = new Location(world, 0, -60, 0);
+        Location spawnLocation = new Location(world, 0, 0, 0);
         event.setRespawnLocation(spawnLocation);
     }
 }
