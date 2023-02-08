@@ -3,6 +3,7 @@ package de.monaco07.publicserver;
 import de.monaco07.publicserver.commands.LobbyCommand;
 import de.monaco07.publicserver.commands.TimerCommand;
 import de.monaco07.publicserver.commands.WorldsCommand;
+import de.monaco07.publicserver.listeners.ItemClickListener;
 import de.monaco07.publicserver.listeners.QuitListener;
 import de.monaco07.publicserver.listeners.RespawnListener;
 import de.monaco07.publicserver.timer.Timer;
@@ -35,6 +36,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new JoinListener(), this);
         pluginManager.registerEvents(new RespawnListener(), this);
         pluginManager.registerEvents(new QuitListener(), this);
+        pluginManager.registerEvents(new ItemClickListener(), this);
 
         getCommand("timer").setExecutor(new TimerCommand());
         getCommand("worlds").setExecutor(new WorldsCommand());
