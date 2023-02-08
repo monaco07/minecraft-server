@@ -16,7 +16,7 @@ public class JoinListener implements Listener {
         Player player = event.getPlayer();
         event.setJoinMessage(ChatColor.GREEN.toString() + ChatColor.UNDERLINE + player.getName() + " hat den Server betreten");
         World world = Bukkit.getServer().getWorld("lobby");
-        Location spawnLocation = new Location(world, 0, 0, 0);
+        Location spawnLocation = new Location(world, 0, 1, 0);
         player.teleport(spawnLocation);
         ItemStack itemStack = new ItemStack(Material.COMPASS);
         ItemMeta itemMeta = itemStack.getItemMeta();
