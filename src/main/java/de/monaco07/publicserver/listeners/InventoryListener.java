@@ -13,6 +13,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 public class InventoryListener implements Listener {
     @EventHandler
     public void onInvClick(InventoryClickEvent event){
+        event.getWhoClicked().sendMessage("Du hast das inv geöffnet oder was anderes ka");
         if(event.getCurrentItem() == null) return;
         if(event.getView().getTitle() == "§4NAVIGATOR"){
             Player player = (Player) event.getWhoClicked();

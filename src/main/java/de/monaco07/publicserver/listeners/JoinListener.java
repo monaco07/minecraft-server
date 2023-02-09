@@ -1,5 +1,6 @@
 package de.monaco07.publicserver.listeners;
 
+import de.monaco07.publicserver.utils.ItemBuilder;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -15,12 +16,12 @@ public class JoinListener implements Listener {
     public void onJoin(PlayerJoinEvent event){
         Player player = event.getPlayer();
         event.setJoinMessage(ChatColor.GREEN.toString() + ChatColor.UNDERLINE + player.getName() + " hat den Server betreten");
+
         World world = Bukkit.getServer().getWorld("lobby");
         Location spawnLocation = new Location(world, 0, 1, 0);
         player.teleport(spawnLocation);
-        ItemStack itemStack = new ItemStack(Material.COMPASS);
-        ItemMeta itemMeta = itemStack.getItemMeta();
-        itemMeta.setDisplayName(ChatColor.RED + "Teleporter");
+        ItemStack itemStack = new ItemBuilder(Material.COMPASS).setDisplayname("navigatortest123").build();
+
 
         player.getInventory().setItem(0, itemStack);
 
