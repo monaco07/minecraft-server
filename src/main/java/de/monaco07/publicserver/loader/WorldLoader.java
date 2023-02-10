@@ -3,7 +3,6 @@ package de.monaco07.publicserver.loader;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.WorldCreator;
-import org.bukkit.WorldType;
 
 public class WorldLoader {
 

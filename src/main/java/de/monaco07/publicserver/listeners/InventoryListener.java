@@ -1,13 +1,12 @@
 package de.monaco07.publicserver.listeners;
 
-import de.monaco07.publicserver.loader.LobbyTeleporter;
+import de.monaco07.publicserver.teleporter.CraftAttackTeleporter;
+import de.monaco07.publicserver.teleporter.LobbyTeleporter;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 
 
 public class InventoryListener implements Listener {
@@ -30,16 +29,9 @@ public class InventoryListener implements Listener {
                player.sendMessage("Citybuild gibts noch nicht");
             }
             else if (event.getCurrentItem().getType() == Material.MYCELIUM) {
-                World world = Bukkit.getServer().getWorld("craftattack");
-                Location spawnLocation = new Location(world, 0, 150, 0);
-                player.teleport(spawnLocation);
 
+                CraftAttackTeleporter.teleport(player);
 
-                // Hier muss die Dateien von craftattack rüstung ( items geladen werden
-                player.getInventory().clear();
-
-                player.setGameMode(GameMode.SURVIVAL);
-                player.sendMessage(ChatColor.YELLOW + "Du befindest dich jetzt in CraftAttack");
             }
             else if (event.getCurrentItem().getType() == Material.RED_BED) {
                 player.sendMessage("BedWars gibts noch nicht");
