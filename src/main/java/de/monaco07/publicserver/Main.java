@@ -24,6 +24,8 @@ public final class Main extends JavaPlugin {
     public void onEnable() {
 
         WorldLoader.loadWorld("lobby");
+        WorldLoader.loadWorld("craftattack");
+
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_RED + "Server wurde erfolgreich gestartet");
 
         // Plugin startup logic

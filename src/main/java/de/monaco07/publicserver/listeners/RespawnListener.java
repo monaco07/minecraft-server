@@ -21,12 +21,15 @@ public class RespawnListener implements Listener {
 
             event.getPlayer().getInventory().clear();
             event.getPlayer().getInventory().setItem(0, itemStack);
+            event.getPlayer().setGameMode(GameMode.ADVENTURE);
         }
 
         else if(event.getPlayer().getWorld() == craftAttackWorld) {
 
             Location spawnLocation = new Location(craftAttackWorld, 0, 1, 0);
             event.setRespawnLocation(spawnLocation);
+            event.getPlayer().getInventory().clear();
+            event.getPlayer().setGameMode(GameMode.SURVIVAL);
 
         }
 

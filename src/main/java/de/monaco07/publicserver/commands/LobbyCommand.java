@@ -15,6 +15,7 @@ public class LobbyCommand implements CommandExecutor {
             Player player = (Player) sender;
             World world = Bukkit.getWorld("lobby");
             player.teleport(new Location(world, 0.5, 1, 0.5));
+            player.getInventory().clear();
             return true;
         } else {
             sender.sendMessage("Nur Spieler können diesen Befehl verwenden.");

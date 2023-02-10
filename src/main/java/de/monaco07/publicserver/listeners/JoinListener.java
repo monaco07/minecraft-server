@@ -22,8 +22,9 @@ public class JoinListener implements Listener {
         player.teleport(spawnLocation);
         ItemStack itemStack = new ItemBuilder(Material.COMPASS).setDisplayname(ChatColor.DARK_RED+ "Teleporter").build();
 
-        event.getPlayer().getInventory().clear();
+        player.getInventory().clear();
         player.getInventory().setItem(0, itemStack);
+        player.setGameMode(GameMode.ADVENTURE);
 
     }
 
