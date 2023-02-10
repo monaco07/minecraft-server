@@ -11,6 +11,9 @@ public class CraftAttackTeleporter {
         if(Bukkit.getServer().getWorld("craftattack") == null){
             WorldLoader.loadWorld("craftattack");
         }
+
+
+
         World world = Bukkit.getServer().getWorld("craftattack");
         Location spawnLocation = new Location(world, 0, 150, 0);
         player.teleport(spawnLocation);

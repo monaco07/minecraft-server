@@ -4,6 +4,8 @@ import de.monaco07.publicserver.utils.ItemBuilder;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public class LobbyTeleporter {
     public static void teleport(Player player){
@@ -18,8 +20,17 @@ public class LobbyTeleporter {
         player.getInventory().clear();
         player.getInventory().setItem(0, itemStack);
 
-        // Gamemodemiert
+        // Gamemodetiert
         player.setGameMode(GameMode.ADVENTURE);
+
+        // Essen + Leben
+        player.setFoodLevel(20);
+        player.setHealth(20);
+        // Potions
+        PotionEffect saturation = new PotionEffect(PotionEffectType.SATURATION, 60 * 60 * 24, 1);
+        PotionEffect speed = new PotionEffect(PotionEffectType.SPEED, 60 * 60 * 24, 1);
+        player.addPotionEffect(saturation);
+        player.addPotionEffect(speed);
 
     }
 }

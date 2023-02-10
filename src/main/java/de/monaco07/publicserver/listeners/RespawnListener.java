@@ -14,15 +14,14 @@ public class RespawnListener implements Listener {
         World lobbyWorld = Bukkit.getServer().getWorld("lobby");
         World craftAttackWorld = Bukkit.getServer().getWorld("craftattack");
 
-        if(event.getPlayer().getWorld() == lobbyWorld) {
 
-            LobbyTeleporter.teleport(event.getPlayer());
-        }
-
-        else if(event.getPlayer().getWorld() == craftAttackWorld) {
+        if(event.getPlayer().getWorld() == craftAttackWorld) {
 
             CraftAttackTeleporter.teleport(event.getPlayer());
 
+        }
+        else {
+            LobbyTeleporter.teleport(event.getPlayer());
         }
 
 
