@@ -3,12 +3,9 @@ package de.monaco07.publicserver;
 import de.monaco07.publicserver.commands.LobbyCommand;
 import de.monaco07.publicserver.commands.TimerCommand;
 import de.monaco07.publicserver.commands.WorldsCommand;
-import de.monaco07.publicserver.listeners.ItemClickListener;
-import de.monaco07.publicserver.listeners.QuitListener;
-import de.monaco07.publicserver.listeners.RespawnListener;
+import de.monaco07.publicserver.listeners.*;
 import de.monaco07.publicserver.timer.Timer;
 import de.monaco07.publicserver.loader.WorldLoader;
-import de.monaco07.publicserver.listeners.JoinListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.PluginManager;
@@ -37,6 +34,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new RespawnListener(), this);
         pluginManager.registerEvents(new QuitListener(), this);
         pluginManager.registerEvents(new ItemClickListener(), this);
+        pluginManager.registerEvents(new InventoryListener(), this);
 
         getCommand("timer").setExecutor(new TimerCommand());
         getCommand("worlds").setExecutor(new WorldsCommand());

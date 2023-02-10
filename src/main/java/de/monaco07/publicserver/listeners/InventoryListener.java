@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 
 
 public class InventoryListener implements Listener {
+
     @EventHandler
     public void onInvClick(InventoryClickEvent event) {
         if (event.getView().getTitle().equalsIgnoreCase(  "§4NAVIGATOR")) { //dont forget to include ChatColor formatting
