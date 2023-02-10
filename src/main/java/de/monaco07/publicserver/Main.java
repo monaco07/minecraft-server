@@ -37,6 +37,8 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new QuitListener(), this);
         pluginManager.registerEvents(new ItemClickListener(), this);
         pluginManager.registerEvents(new InventoryListener(), this);
+        pluginManager.registerEvents(new FoodLevelChangeListener(), this);
+        pluginManager.registerEvents(new EntityDamageListener(), this);
 
         getCommand("timer").setExecutor(new TimerCommand());
         getCommand("worlds").setExecutor(new WorldsCommand());
