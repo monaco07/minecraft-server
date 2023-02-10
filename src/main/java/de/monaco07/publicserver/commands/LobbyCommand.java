@@ -1,21 +1,23 @@
 package de.monaco07.publicserver.commands;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.World;
+import de.monaco07.publicserver.loader.LobbyTeleporter;
+import de.monaco07.publicserver.utils.ItemBuilder;
+import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 public class LobbyCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            World world = Bukkit.getWorld("lobby");
-            player.teleport(new Location(world, 0.5, 1, 0.5));
-            player.getInventory().clear();
+
+            LobbyTeleporter.teleport(player);
+
             return true;
         } else {
             sender.sendMessage("Nur Spieler können diesen Befehl verwenden.");

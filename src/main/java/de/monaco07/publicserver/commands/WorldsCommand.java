@@ -1,5 +1,6 @@
 package de.monaco07.publicserver.commands;
 
+import de.monaco07.publicserver.loader.LobbyTeleporter;
 import de.monaco07.publicserver.loader.WorldLoader;
 import org.bukkit.*;
 import org.bukkit.command.Command;
@@ -75,6 +76,15 @@ public class WorldsCommand implements CommandExecutor {
                             sender.sendMessage(ChatColor.RED + "Die Welt '" + args[1] + "' wurde nicht gefunden.");
 
                         }
+                        else if(world.getName() == "lobby"){
+
+
+                            LobbyTeleporter.teleport(player);
+
+                        }
+
+
+
                         else if(world.getName() == "craftattack"){
 
                             Location spawnLocation = new Location(world, 0, 150, 0);

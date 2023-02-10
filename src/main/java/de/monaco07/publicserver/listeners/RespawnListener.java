@@ -1,5 +1,6 @@
 package de.monaco07.publicserver.listeners;
 
+import de.monaco07.publicserver.loader.LobbyTeleporter;
 import de.monaco07.publicserver.utils.ItemBuilder;
 import org.bukkit.*;
 import org.bukkit.event.EventHandler;
@@ -14,19 +15,12 @@ public class RespawnListener implements Listener {
         World craftAttackWorld = Bukkit.getServer().getWorld("craftattack");
         if(event.getPlayer().getWorld() == lobbyWorld) {
 
-            Location spawnLocation = new Location(lobbyWorld, 0, 1, 0);
-            event.setRespawnLocation(spawnLocation);
-
-            ItemStack itemStack = new ItemBuilder(Material.COMPASS).setDisplayname(ChatColor.DARK_RED + "Teleporter").build();
-
-            event.getPlayer().getInventory().clear();
-            event.getPlayer().getInventory().setItem(0, itemStack);
-            event.getPlayer().setGameMode(GameMode.ADVENTURE);
+            LobbyTeleporter.teleport(event.getPlayer());
         }
 
         else if(event.getPlayer().getWorld() == craftAttackWorld) {
 
-            Location spawnLocation = new Location(craftAttackWorld, 0, 1, 0);
+            Location spawnLocation = new Location(craftAttackWorld, 0, 150, 0);
             event.setRespawnLocation(spawnLocation);
             event.getPlayer().getInventory().clear();
             event.getPlayer().setGameMode(GameMode.SURVIVAL);
