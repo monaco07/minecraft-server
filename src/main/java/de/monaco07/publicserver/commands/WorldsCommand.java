@@ -1,10 +1,7 @@
 package de.monaco07.publicserver.commands;
 
 import de.monaco07.publicserver.loader.WorldLoader;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.World;
-import org.bukkit.WorldCreator;
+import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -78,6 +75,12 @@ public class WorldsCommand implements CommandExecutor {
                             sender.sendMessage(ChatColor.RED + "Die Welt '" + args[1] + "' wurde nicht gefunden.");
 
                         }
+                        else if(world.getName() == "craftattack"){
+
+                            Location spawnLocation = new Location(world, 0, 150, 0);
+                            player.teleport(spawnLocation);
+                        }
+
                         else {
                             player.teleport(world.getSpawnLocation());
                             sender.sendMessage(ChatColor.BLUE + "Du wurdest zu Welt '" + args[1] + "' teleportiert.");

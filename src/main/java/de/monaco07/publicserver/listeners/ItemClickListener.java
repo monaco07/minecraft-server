@@ -20,11 +20,13 @@ public class ItemClickListener implements Listener {
         ItemStack itemStack = event.getItem();
 
         if(itemStack.getType() == Material.COMPASS){
-            event.getPlayer().sendMessage("Du hast den Kompass geklickt");
-            Inventory inv = Bukkit.createInventory(null, 3*9, "§4NAVIGATOR");
+            Inventory inv = Bukkit.createInventory(null, 4*9, "§4NAVIGATOR");
 
-            inv.setItem(13, new ItemBuilder(Material.GRASS_BLOCK).setDisplayname("§2CITYBUILD").build());
-            inv.setItem(4, new ItemBuilder(Material.MAGMA_CREAM).setDisplayname("§6SPAWN").build());
+            inv.setItem(4, new ItemBuilder(Material.SNOWBALL).setDisplayname(ChatColor.BOLD.toString() + ChatColor.YELLOW + "SPAWN").build());
+            inv.setItem(19, new ItemBuilder(Material.GRASS_BLOCK).setDisplayname(ChatColor.GREEN + "CityBuild").build());
+            inv.setItem(21, new ItemBuilder(Material.MYCELIUM).setDisplayname(ChatColor.GREEN + "CraftAttack").build());
+            inv.setItem(23, new ItemBuilder(Material.RED_BED).setDisplayname(ChatColor.GREEN + "BedWars").build());
+            inv.setItem(25, new ItemBuilder(Material.ENDER_EYE).setDisplayname(ChatColor.GREEN + "SkyWars").build());
             event.getPlayer().openInventory(inv);
             }
 

@@ -21,18 +21,34 @@ public class InventoryListener implements Listener {
             }
 
             //See what item they clicked on by getting the material of the item
-            if (event.getCurrentItem().getType() == Material.MAGMA_CREAM) {
+            if (event.getCurrentItem().getType() == Material.SNOWBALL) {
 
                 World world = Bukkit.getServer().getWorld("lobby");
                 Location spawnLocation = new Location(world, 0, 1, 0);
                 event.getWhoClicked().teleport(spawnLocation);
                 event.getWhoClicked().sendMessage(ChatColor.YELLOW + "Du wurdest zum Spawn teleportiert");
+            }
+            else if (event.getCurrentItem().getType() == Material.GRASS_BLOCK) {
+                event.getWhoClicked().sendMessage("Citybuild gibts noch nicht");
+            }
+            else if (event.getCurrentItem().getType() == Material.MYCELIUM) {
+                World world = Bukkit.getServer().getWorld("craftattack");
+                Location spawnLocation = new Location(world, 0, 150, 0);
+                event.getWhoClicked().teleport(spawnLocation);
+                event.getWhoClicked().sendMessage(ChatColor.YELLOW + "Du befindest dich jetzt in CraftAttack");
+            }
+            else if (event.getCurrentItem().getType() == Material.RED_BED) {
+                event.getWhoClicked().sendMessage("BedWars gibts noch nicht");
+            }
+            else if (event.getCurrentItem().getType() == Material.ENDER_EYE) {
+                event.getWhoClicked().sendMessage("SkyWars gibts noch nicht");
+            }
 
 
-            } else if (event.getCurrentItem().getType() == Material.GRASS_BLOCK) {
-                System.out.println("Citybuild gibts noch nicht");
-            } else {
-                System.out.println("You clicked on something else!!!");
+
+
+            else {
+                System.out.println("Error, wohin wurde geklickt, item nicht angemeldet");
             }
 
             //make it so that players cannot move items in the inventory

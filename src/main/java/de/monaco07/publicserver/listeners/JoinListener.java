@@ -20,9 +20,9 @@ public class JoinListener implements Listener {
         World world = Bukkit.getServer().getWorld("lobby");
         Location spawnLocation = new Location(world, 0, 1, 0);
         player.teleport(spawnLocation);
-        ItemStack itemStack = new ItemBuilder(Material.COMPASS).setDisplayname("navigatortest123").build();
+        ItemStack itemStack = new ItemBuilder(Material.COMPASS).setDisplayname(ChatColor.DARK_RED+ "Teleporter").build();
 
-
+        event.getPlayer().getInventory().clear();
         player.getInventory().setItem(0, itemStack);
 
     }
