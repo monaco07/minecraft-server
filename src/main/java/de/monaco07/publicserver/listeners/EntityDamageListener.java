@@ -23,6 +23,8 @@ public class EntityDamageListener implements Listener {
                 } else {
                     player.sendMessage(ChatColor.DARK_RED.toString() + ChatColor.UNDERLINE + player.getName() + " konnte nicht in der Lobby zu bleiben");
                     LobbyTeleporter.teleport(player);
+
+
                 }
             }
         }

@@ -29,5 +29,10 @@ public class CraftAttackTeleporter {
 
 
         player.sendMessage(ChatColor.YELLOW + "Du spielst nun CraftAttack");
+
+
+        // removed effekte
+        player.getActivePotionEffects().clear();
+
     }
 }

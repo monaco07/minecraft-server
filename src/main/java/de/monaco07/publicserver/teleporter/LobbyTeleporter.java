@@ -27,9 +27,7 @@ public class LobbyTeleporter {
         player.setFoodLevel(20);
         player.setHealth(20);
         // Potions
-        PotionEffect saturation = new PotionEffect(PotionEffectType.SATURATION, 60 * 60 * 24, 1);
         PotionEffect speed = new PotionEffect(PotionEffectType.SPEED, 60 * 60 * 24, 1);
-        player.addPotionEffect(saturation);
         player.addPotionEffect(speed);
 
     }

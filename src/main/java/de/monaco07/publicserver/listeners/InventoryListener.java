@@ -1,5 +1,6 @@
 package de.monaco07.publicserver.listeners;
 
+import de.monaco07.publicserver.teleporter.CityBuildTeleporter;
 import de.monaco07.publicserver.teleporter.CraftAttackTeleporter;
 import de.monaco07.publicserver.teleporter.LobbyTeleporter;
 import org.bukkit.*;
@@ -26,7 +27,7 @@ public class InventoryListener implements Listener {
                 LobbyTeleporter.teleport(player);
             }
             else if (event.getCurrentItem().getType() == Material.GRASS_BLOCK) {
-               player.sendMessage("Citybuild gibts noch nicht");
+                CityBuildTeleporter.teleport(player);
             }
             else if (event.getCurrentItem().getType() == Material.MYCELIUM) {
 
