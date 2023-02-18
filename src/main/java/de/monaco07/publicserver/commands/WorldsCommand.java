@@ -1,5 +1,6 @@
 package de.monaco07.publicserver.commands;
 
+import de.monaco07.publicserver.teleporter.CityBuildTeleporter;
 import de.monaco07.publicserver.teleporter.CraftAttackTeleporter;
 import de.monaco07.publicserver.teleporter.LobbyTeleporter;
 import de.monaco07.publicserver.loader.WorldLoader;
@@ -80,6 +81,10 @@ public class WorldsCommand implements CommandExecutor {
 
                             LobbyTeleporter.teleport(player);
 
+                        }
+                        else if(world.getName().equalsIgnoreCase("citybuild")){
+
+                            CityBuildTeleporter.teleport(player);
                         }
 
 

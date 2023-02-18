@@ -6,10 +6,8 @@ import org.bukkit.potion.PotionEffectType;
 
 public class CityBuildTeleporter {
     public static void teleport(Player player){
-        // Teleportiert
-        World world = Bukkit.getServer().getWorld("citybuilt_1");
-        Location spawnLocation = new Location(world, 24, 63, -72);
-        player.teleport(spawnLocation);
+
+
 
 
         // Inventiert config von citybuild + craftattack
@@ -24,6 +22,13 @@ public class CityBuildTeleporter {
         player.setFoodLevel(20);
         player.setHealth(20);
         // Potions
+        player.removePotionEffect(PotionEffectType.SPEED);
+
+
+        // Teleportiert
+        World world = Bukkit.getServer().getWorld("citybuilt_1");
+        Location spawnLocation = new Location(world, 25, 63, -74);
+        player.teleport(spawnLocation);
     }
 }
 
