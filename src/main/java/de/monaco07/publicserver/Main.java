@@ -1,5 +1,6 @@
 package de.monaco07.publicserver;
 
+import de.monaco07.publicserver.commands.KitCommand;
 import de.monaco07.publicserver.commands.LobbyCommand;
 import de.monaco07.publicserver.commands.TimerCommand;
 import de.monaco07.publicserver.commands.WorldsCommand;
@@ -22,7 +23,7 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-
+        saveDefaultConfig();
         WorldLoader.loadWorld("lobby");
         WorldLoader.loadWorld("craftattack");
 
@@ -40,12 +41,15 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new FoodLevelChangeListener(), this);
         pluginManager.registerEvents(new EntityDamageListener(), this);
 
+        pluginManager.registerEvents(SpawnBoostListener.create(this), this);
+
         getCommand("timer").setExecutor(new TimerCommand());
         getCommand("worlds").setExecutor(new WorldsCommand());
         getCommand("l").setExecutor(new LobbyCommand());
         getCommand("lobby").setExecutor(new LobbyCommand());
         getCommand("h").setExecutor(new LobbyCommand());
         getCommand("hub").setExecutor(new LobbyCommand());
+        getCommand("kit").setExecutor(new KitCommand());
 
 
 

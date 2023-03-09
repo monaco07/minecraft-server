@@ -1,10 +1,10 @@
 package de.monaco07.publicserver.teleporter;
 
-import org.bukkit.Bukkit;
-import org.bukkit.GameMode;
-import org.bukkit.Location;
-import org.bukkit.World;
+import org.bukkit.*;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 public class PotTeleporter {
     public static void teleport(Player player){
@@ -16,6 +16,7 @@ public class PotTeleporter {
 
         player.setFoodLevel(20);
         player.setHealth(20);
+
 
 
         World world = Bukkit.getServer().getWorld("lobby");

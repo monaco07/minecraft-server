@@ -1,6 +1,7 @@
 package de.monaco07.publicserver.utils;
 
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -24,6 +25,10 @@ public class ItemBuilder {
     }
     public ItemBuilder setLocalizedName(String s){
         itemMeta.setLocalizedName(s);
+        return this;
+    }
+    public ItemBuilder addEnchantment(Enchantment enchantment, int level){
+        itemMeta.addEnchant(enchantment, level, true);
         return this;
     }
     public ItemBuilder setLore(String... s){
