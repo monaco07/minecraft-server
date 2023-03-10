@@ -48,7 +48,7 @@ public final class Main extends JavaPlugin {
         getCommand("lobby").setExecutor(new LobbyCommand());
         getCommand("h").setExecutor(new LobbyCommand());
         getCommand("hub").setExecutor(new LobbyCommand());
-        getCommand("kit").setExecutor(new KitCommand());
+
 
 
 
