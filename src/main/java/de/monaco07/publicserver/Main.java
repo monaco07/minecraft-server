@@ -41,7 +41,6 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new FoodLevelChangeListener(), this);
         pluginManager.registerEvents(new EntityDamageListener(), this);
 
-        pluginManager.registerEvents(SpawnBoostListener.create(this), this);
 
         getCommand("timer").setExecutor(new TimerCommand());
         getCommand("worlds").setExecutor(new WorldsCommand());
