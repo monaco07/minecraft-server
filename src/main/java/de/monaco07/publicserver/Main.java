@@ -1,6 +1,5 @@
 package de.monaco07.publicserver;
 
-import de.monaco07.publicserver.commands.KitCommand;
 import de.monaco07.publicserver.commands.LobbyCommand;
 import de.monaco07.publicserver.commands.TimerCommand;
 import de.monaco07.publicserver.commands.WorldsCommand;
@@ -31,7 +30,6 @@ public final class Main extends JavaPlugin {
 
         // Plugin startup logic
 
-
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new JoinListener(), this);
         pluginManager.registerEvents(new RespawnListener(), this);
@@ -50,13 +48,7 @@ public final class Main extends JavaPlugin {
         getCommand("hub").setExecutor(new LobbyCommand());
 
 
-
-
-
         timer = new Timer(false, 0);
-
-
-
     }
 
     @Override
