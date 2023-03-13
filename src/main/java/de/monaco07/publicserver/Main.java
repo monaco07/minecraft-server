@@ -22,9 +22,6 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        saveDefaultConfig();
-        WorldLoader.loadWorld("lobby");
-        WorldLoader.loadWorld("craftattack");
 
         Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_RED + "Server wurde erfolgreich gestartet");
 
