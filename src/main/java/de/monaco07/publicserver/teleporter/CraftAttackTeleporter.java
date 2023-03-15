@@ -22,6 +22,8 @@ public class CraftAttackTeleporter {
 
         // Config Laden ?
         player.getInventory().clear();
+        // gibt ihm eine unbreakable Chestplate
+        player.getInventory().setChestplate(new ItemBuilder(Material.ELYTRA).setUnbreakable(true).setDisplayname("StartElytra").build());
 
 
         // Gamemodemiert
