@@ -35,6 +35,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new InventoryListener(), this);
         pluginManager.registerEvents(new FoodLevelChangeListener(), this);
         pluginManager.registerEvents(new EntityDamageListener(), this);
+        pluginManager.registerEvents(new BlockBreakListener(), this);
 
 
         getCommand("timer").setExecutor(new TimerCommand());
